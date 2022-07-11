@@ -13,8 +13,7 @@ public class App {
         ArrayList<String> file2 = CSVs.readcsv("./sample_file_3.csv");
 
         ArrayList<String> exceptions = CSVs.comparecsvs(file1, file2);
-        File output = CSVs.writecsv(exceptions);
-        System.out.println(exceptions);
+        CSVs.writecsv(exceptions);
     }
 }
 
@@ -48,7 +47,7 @@ class CSVs {
 
     }
 
-    public static File writecsv(ArrayList<String> al) throws IOException {
+    public static void writecsv(ArrayList<String> al) throws IOException {
         File file = new File("./out.csv");
         FileWriter filewriter = new FileWriter(file);
         BufferedWriter bufferedwriter = new BufferedWriter(filewriter);
@@ -60,8 +59,6 @@ class CSVs {
 
         bufferedwriter.close();
         filewriter.close();
-
-        return file;
     }
 
 }
