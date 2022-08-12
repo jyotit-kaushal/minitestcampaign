@@ -48,6 +48,20 @@ class CSVs {
 
     }
 
+    public static int countexceptions(ArrayList<String> csv1, ArrayList<String> csv2) {
+        int length = Math.min(csv1.size(), csv2.size());
+//        ArrayList<String> exceptions = new ArrayList<String>();
+
+        int count_exceptions=0;
+        for (Object x: csv1) {
+            if (!csv2.contains(x)) {
+                count_exceptions+=1;
+            }
+        }
+        return count_exceptions;
+
+    }
+
     public static void writecsv(ArrayList<String> al) throws IOException {
         File file = new File("./out.csv");
         FileWriter filewriter = new FileWriter(file);
@@ -61,5 +75,6 @@ class CSVs {
         bufferedwriter.close();
         filewriter.close();
     }
-
 }
+
+
